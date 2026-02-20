@@ -18,10 +18,9 @@ body.dark-mode {
 }
 
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     min-height: 100vh;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -30,103 +29,185 @@ body {
 }
 
 .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    margin-bottom: 30px;
     text-align: center;
-    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.subtitle {
+    margin: 10px 0 0;
+    opacity: 0.8;
 }
 
 .theme-toggle {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
+    z-index: 100;
+}
+
+/* Ad Containers */
+.ad-container {
+    width: 100%;
+    max-width: 728px;
+    margin: 30px auto;
+    min-height: 90px;
+    background: rgba(0,0,0,0.03);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+body.dark-mode .ad-container {
+    background: rgba(255,255,255,0.03);
+}
+
+.generator-card {
+    background-color: var(--number-bg);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid var(--number-border);
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .numbers {
     display: flex;
-    gap: 10px;
-    margin: 20px 0;
+    gap: 15px;
+    margin-bottom: 30px;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .number {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: var(--number-bg);
-    border: 2px solid var(--number-border);
+    border: 3px solid var(--number-border);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
-    transition: background-color 0.3s, border-color 0.3s;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.number:hover {
+    transform: scale(1.1);
+    border-color: #007bff;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 12px 30px;
+    font-size: 20px;
     cursor: pointer;
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    border: 1px solid var(--number-border);
-    border-radius: 8px;
-    transition: background-color 0.3s, color 0.3s;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    transition: all 0.3s;
+    font-weight: bold;
 }
 
 button:hover {
-    opacity: 0.9;
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .divider {
-    margin: 40px 0;
+    width: 100%;
+    margin: 50px 0;
     border: 0;
-    border-top: 1px solid var(--number-border);
+    border-top: 2px dashed var(--number-border);
 }
 
 .contact-section {
-    max-width: 400px;
+    width: 100%;
+    max-width: 500px;
     margin: 0 auto;
     text-align: left;
 }
 
 .contact-section h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
 }
 
 .form-group label {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
 }
 
 .form-group input,
 .form-group textarea {
-    padding: 10px;
-    border-radius: 5px;
+    padding: 12px;
+    border-radius: 8px;
     border: 1px solid var(--number-border);
     background-color: var(--number-bg);
     color: var(--text-color);
     font-family: inherit;
+    font-size: 16px;
 }
 
 .form-group textarea {
-    min-height: 100px;
+    min-height: 120px;
     resize: vertical;
 }
 
 .submit-btn {
     width: 100%;
     margin-top: 10px;
+}
+
+footer {
+    padding: 40px 20px;
+    background-color: var(--number-bg);
+    border-top: 1px solid var(--number-border);
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin: 10px 0;
+    line-height: 1.6;
+    font-size: 14px;
+    opacity: 0.8;
 }
